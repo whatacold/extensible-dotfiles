@@ -1,0 +1,40 @@
+# see `astyle -h` for doc.
+
+# brackets style
+--style=kr
+--attach-extern-c
+
+# 4 spaces indentation
+--indent=spaces=4
+
+# Entire class block is indented (C++)
+--indent-classes
+
+# Entire switch-case block is indented
+--indent-switches
+
+# Indent multi-line defines
+--indent-preproc-define
+
+# Indent comments to corresponding indentation level
+--indent-col1-comments
+
+# Space padding around operators
+--pad-oper
+
+# Remove paren internal padding
+--unpad-paren
+
+# Align pointers operators to variable name (right)
+--align-pointer=name
+
+# One line conditional statement has brackets
+--add-brackets
+
+# Max code length is 80 characters
+--max-code-length=80
+
+# Do not retain a backup
+--suffix=none
+
+--lineend=linux
