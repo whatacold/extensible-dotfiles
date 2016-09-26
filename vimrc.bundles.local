@@ -1,0 +1,13 @@
+" vim: set ft=vim:
+" this script contains plugins related stuffs.
+
+" Add my plugins
+" They need to be installed, run vim +BundleInstall! +BundleClean +q
+
+" required by 'xolox/vim-session'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-session'
+
+" Remove plugins that are not needed
+" e.g. UnBundle 'scrooloose/syntastic'
+" remember to run :BundleClean! to take effect.
