@@ -1,0 +1,2 @@
+" prevent spf13 auto changing working dir
+let g:spf13_no_autochdir = 1
