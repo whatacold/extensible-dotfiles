@@ -1,3 +1,19 @@
 " vim: set ft=vim:
 
 colorscheme solarized
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+
+" plugin settings {
+
+" xolox/vim-session
+let g:session_autosave = 'no'
+" type :Session<Tab> to get completion
+let g:session_command_aliases = 1
+
+" xolox/vim-easytags
+" This plugin requires Exuberant Ctags
+let g:easytags_file = './.vim/vimtags'
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 2
+
+" }
