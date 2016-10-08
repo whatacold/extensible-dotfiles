@@ -4,7 +4,12 @@
 " Add my plugins {
 " They need to be installed, run vim +PluginInstall! +PluginClean +q
 
-Bundle 'xolox/vim-misc'             " required by 'xolox/vim-session'
+" XXX note that `Bundle' command doesn't support in-line comment,
+" e.g.
+" Bundle 'foo' " install foo
+
+" required by 'xolox/vim-session'
+Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
 Bundle 'xolox/vim-easytags'
 " }
@@ -12,5 +17,6 @@ Bundle 'xolox/vim-easytags'
 " Remove plugins that are not needed {
 " remember to run :PluginClean! to take effect.
 
-UnBundle 'spf13/vim-colors'         " solarized is my favorite
+" solarized is my favorite
+UnBundle 'spf13/vim-colors'
 " }
