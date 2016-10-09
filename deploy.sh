@@ -6,3 +6,6 @@ ln -sf $PWD/astylerc ~/.astylerc
 ln -sf $PWD/vimrc.before.local ~/.vimrc.before.local
 ln -sf $PWD/vimrc.bundles.local ~/.vimrc.bundles.local
 ln -sf $PWD/vimrc.local ~/.vimrc.local
+
+# git
+ln -sf $PWD/gitconfig ~/.gitconfig

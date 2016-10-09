@@ -1,0 +1,21 @@
+[user]
+	name = whatacold
+	email = whatacold@gmail.com
+[core]
+	editor = vim
+	autocrlf = false
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	dt = difftool
+	mt = mergetool
+	br = branch
+[difftool "meld"]
+	cmd = meld $LOCAL $REMOTE
+[difftool "p4"]
+	cmd = p4diff $LOCAL $REMOTE
+[difftool]
+	prompt = false
+[diff]
+	tool = meld
