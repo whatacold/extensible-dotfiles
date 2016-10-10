@@ -12,6 +12,9 @@
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
 Bundle 'xolox/vim-easytags'
+
+" This github mirror version is out-of-date
+Bundle 'vim-scripts/taglist.vim'
 " }
 
 " Remove plugins that are not needed {
