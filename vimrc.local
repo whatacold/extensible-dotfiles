@@ -18,7 +18,8 @@ let g:session_command_aliases = 1
 
 " xolox/vim-easytags
 " This plugin requires Exuberant Ctags
+set cpoptions+=d                        " treat ./tags as in Vi
 let g:easytags_async = 1
-" let g:easytags_dynamic_files = 1
+let g:easytags_dynamic_files = 1        " friendly to project-specifc tags
 
 " }
