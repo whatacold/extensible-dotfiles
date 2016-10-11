@@ -2,6 +2,8 @@
 
 colorscheme solarized
 
+set mouse=""
+
 " encodings
 " see http://www.cnblogs.com/jscode/archive/2012/10/30/2746836.html
 set encoding=utf-8
