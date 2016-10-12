@@ -13,13 +13,14 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
 " xolox/vim-session
 let g:session_autosave = 'no'
-" type :Session<Tab> to get completion
-let g:session_command_aliases = 1
+let g:session_autoload = 'no'
+let g:session_command_aliases = 1               " type :Session<Tab> to get completion
+let g:session_directory = '~/.vimsessions/'     " not affected by spf-vim update
 
 " xolox/vim-easytags
 " This plugin requires Exuberant Ctags
-set cpoptions+=d                        " treat ./tags as in Vi
+set cpoptions+=d                                " treat ./tags as in Vi
 let g:easytags_async = 1
-let g:easytags_dynamic_files = 1        " friendly to project-specifc tags
+let g:easytags_dynamic_files = 1                " friendly to project-specifc tags
 
 " }
