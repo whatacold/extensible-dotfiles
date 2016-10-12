@@ -1,6 +1,7 @@
 #!/bin/sh
 
 ln -sf $PWD/astylerc ~/.astylerc
+ln -sf $PWD/ackrc ~/.ackrc
 
 # spf13-vim
 ln -sf $PWD/vimrc.before.local ~/.vimrc.before.local
