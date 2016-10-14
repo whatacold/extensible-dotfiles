@@ -25,4 +25,8 @@ set cpoptions+=d                                " treat ./tags as in Vi
 let g:easytags_async = 1
 let g:easytags_dynamic_files = 1                " friendly to project-specifc tags
 
+let g:tagbar_left = 1
+
+let NERDTreeWinPos = "right"
+
 " }
