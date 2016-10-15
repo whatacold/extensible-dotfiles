@@ -30,3 +30,7 @@ let g:tagbar_left = 1
 let NERDTreeWinPos = "right"
 
 " }
+
+" hotkeys
+nmap <leader>w :w!<CR>
+nmap <leader>q :q<CR>
