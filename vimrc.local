@@ -11,6 +11,16 @@ set title                                       " show title in terminal
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
+" Turn backup off, since most stuff is in SVN, git etc. anyway...
+set nobackup
+set nowb
+set noswapfile
+
+" use `CTRL-V<TAB>` to insert a real tab in Insert mode.
+" use `:retab` to convert real tabs in legacy files.
+set expandtab
+set smarttab                                    " Be smart when using tabs ;)
+
 " plugin settings {
 
 " xolox/vim-session
@@ -32,5 +42,14 @@ let NERDTreeWinPos = "right"
 " }
 
 " hotkeys
-nmap <leader>w :w!<CR>
-nmap <leader>q :q<CR>
+" avoid to use F<n> key, in case of conflicting with terminal or OS
+" {
+nmap <leader>w :w!<cr>
+nmap <leader>q :q<cr>
+
+map <leader>g :Ack<cr>                          " 'g' for grep
+
+" quickfix iterating
+map <leader>qn :cnext<cr>
+map <leader>qp :cprev<cr>
+" }
