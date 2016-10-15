@@ -16,6 +16,8 @@ Bundle 'xolox/vim-easytags'
 " This github mirror version is out-of-date
 " TagBar is an alternative for this?
 " Bundle 'vim-scripts/taglist.vim'
+
+Bundle 'vim-scripts/YankRing.vim'
 " }
 
 " Remove plugins that are not needed {
