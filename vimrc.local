@@ -47,10 +47,13 @@ else
     let g:yankring_manual_clipboard_check = 1
 
     " TODO the plugin should mkdir for users.
-    let g:yankring_history_dir = '~/.vim_yankring/'
-    if exists("*mkdir") && !isdirectory(g:yankring_history_dir)
-        call mkdir(expand(g:yankring_history_dir))
+    let g:yankring_history_dir = '~/.vim_misc/'
+    " FIXME is there any better way to expand ~ to $HOME?
+    let s:absolute_path = expand(g:yankring_history_dir)
+    if exists("*mkdir") && !isdirectory(s:absolute_path)
+        call mkdir(expand(s:absolute_path))
     endif
+    unlet s:absolute_path
 
     nnoremap <silent> <leader>yr :YRGetElem<CR>
 endif
