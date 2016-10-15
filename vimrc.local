@@ -109,4 +109,11 @@ map <leader>g :Ack<CR>                          " 'g' for grep
 " quickfix iterating
 map <leader>qn :cnext<CR>
 map <leader>qp :cprev<CR>
+
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+
 " }
+
+" tune spf-13 mapings
+let g:spf13_no_easyWindows = 1
