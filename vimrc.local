@@ -55,7 +55,8 @@ else
     endif
     unlet s:absolute_path
 
-    nnoremap <silent> <leader>yr :YRGetElem<CR>
+    let g:yankring_replace_n_pkey = '<C-I>'
+    let g:yankring_replace_n_nkey = '<C-O>'
 endif
 
 " cscope {{
