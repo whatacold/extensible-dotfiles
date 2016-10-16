@@ -137,6 +137,8 @@ map <leader>tp :pop<CR>
 " plugin sync
 nmap <leader>ps :PluginClean!<CR>:PluginInstall!<CR>
 
+nmap <leader>sy :echo "please manually add this mapping for sync'ing files"<CR>
+
 "map <C-J> <C-W>j<C-W>_                         " to be observed
 "map <C-K> <C-W>k<C-W>_
 
