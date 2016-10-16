@@ -134,6 +134,9 @@ map <leader>qp :cprev<CR>
 map <leader>tn :tag<CR>
 map <leader>tp :pop<CR>
 
+" plugin sync
+nmap <leader>ps :PluginClean!<CR>:PluginInstall!<CR>
+
 "map <C-J> <C-W>j<C-W>_                         " to be observed
 "map <C-K> <C-W>k<C-W>_
 
