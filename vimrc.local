@@ -36,8 +36,10 @@ let g:easytags_async = 1
 let g:easytags_dynamic_files = 1                " friendly to project-specifc tags
 
 let g:tagbar_left = 1
+let g:tagbar_width = 30
 
 let NERDTreeWinPos = "right"
+let NERDTreeWinSize = 30
 
 " YankRing
 if has("win16") || has("win32")
