@@ -63,8 +63,8 @@ endif
 " Use the setting in "Suggested usage" of the cscope manual
 if has("cscope")
     set csprg=cscope
+    set cst             " cscopetag, replace all instance of the :tag command with :cstag
     set csto=0          " cscope db first, then ctags db.
-    "set cst             " cscopetag, replace all instance of the :tag command with :cstag
     set nocsverb
     " add any database in current directory
     if filereadable("cscope.out")
