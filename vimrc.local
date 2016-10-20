@@ -131,6 +131,7 @@ map <leader>g :Ack<CR>                          " 'g' for grep
 " iterating quickfix list
 map <leader>qn :cnext<CR>
 map <leader>qp :cprev<CR>
+nmap <leader>qc :cclose<CR>
 
 " iterating tag stack
 map <leader>tn :tag<CR>
