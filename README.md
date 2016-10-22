@@ -8,3 +8,5 @@ including:
 - ack
 
 - astyle
+
+- leo editor

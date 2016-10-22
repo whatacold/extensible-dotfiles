@@ -15,3 +15,7 @@ ln -sf gitconfig ~/.gitconfig
 
 # oh-my-zsh
 ln -sf local.zsh ~/.oh-my-zsh/custom/local.zsh
+
+# leo editor
+# not work yet.
+# ln -sf myLeoSettings.leo ~/.leo/myLeoSettings.leo
