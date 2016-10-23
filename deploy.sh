@@ -1,5 +1,7 @@
 #!/bin/sh
 
+conf=~/.dotfilesrc
+
 cd `dirname $0`
 
 ln -sf $PWD/astylerc ~/.astylerc
@@ -19,3 +21,5 @@ ln -sf $PWD/local.zsh ~/.oh-my-zsh/custom/local.zsh
 # leo editor
 # TODO: set body pane more wider.
 ln -sf $PWD/myLeoSettings.leo ~/.leo/myLeoSettings.leo
+
+echo "V_DIRROOT=$PWD" > $conf
