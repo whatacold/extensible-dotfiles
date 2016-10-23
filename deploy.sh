@@ -17,5 +17,5 @@ ln -sf $PWD/gitconfig ~/.gitconfig
 ln -sf $PWD/local.zsh ~/.oh-my-zsh/custom/local.zsh
 
 # leo editor
-# not work yet.
-# ln -sf $PWD/myLeoSettings.leo ~/.leo/myLeoSettings.leo
+# TODO: set body pane more wider.
+ln -sf $PWD/myLeoSettings.leo ~/.leo/myLeoSettings.leo
