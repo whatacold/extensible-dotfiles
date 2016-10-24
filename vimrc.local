@@ -142,6 +142,12 @@ nmap <leader>ps :PluginClean!<CR>:PluginInstall!<CR>
 
 nmap <leader>sy :echo "please manually add this mapping for sync'ing files"<CR>
 
+" flush tags
+" FIXME works when 'cs kill' fails.
+nmap <leader>ft :cs kill 0<CR>:!rm -f tags cscope.out;ctags -R; cscope -Rb<CR>:cs add cscope.out<CR>
+
+nmap <leader>sh :sh<CR>
+
 "map <C-J> <C-W>j<C-W>_                         " to be observed
 "map <C-K> <C-W>k<C-W>_
 
