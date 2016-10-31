@@ -28,6 +28,7 @@ let g:session_autosave = 'yes'
 let g:session_autoload = 'no'
 let g:session_command_aliases = 1               " type :Session<Tab> to get completion
 let g:session_directory = '~/.vimsessions/'     " not affected by spf-vim update
+let g:session_menu = 0                          " no GUI menu
 
 " xolox/vim-easytags
 " This plugin requires Exuberant Ctags
@@ -50,10 +51,10 @@ else
 
     " TODO the plugin should mkdir for users.
     let g:yankring_history_dir = '~/.vim_misc/'
-    " FIXME is there any better way to expand ~ to $HOME?
+    " an alternative for expand() is fnamemodify().
     let s:absolute_path = expand(g:yankring_history_dir)
     if exists("*mkdir") && !isdirectory(s:absolute_path)
-        call mkdir(expand(s:absolute_path))
+        call mkdir(expand(s:absolute_path), 'p')
     endif
     unlet s:absolute_path
 
