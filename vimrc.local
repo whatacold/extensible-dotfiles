@@ -23,6 +23,7 @@ set smarttab                                    " Be smart when using tabs ;)
 
 " plugin settings {
 
+" try using sessionman.vim, a much simpler solution.
 " xolox/vim-session
 "let g:session_autosave = 'yes'
 "let g:session_autoload = 'no'
@@ -151,5 +152,7 @@ nmap <leader>sh :sh<CR>
 
 "map <C-J> <C-W>j<C-W>_                         " to be observed
 "map <C-K> <C-W>k<C-W>_
+map <C-J> <C-W>j
+map <C-K> <C-W>k
 
 " }
