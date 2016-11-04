@@ -126,7 +126,7 @@ nmap <S-Space><S-Space>i
 " avoid to use F<n> key, in case of conflicting with terminal or OS
 " {
 nmap <leader>w :w!<CR>
-nmap <leader>q :q<CR>
+nmap <leader>q :qa<CR>
 
 map <leader>g :Ack<CR>                          " 'g' for grep
 
