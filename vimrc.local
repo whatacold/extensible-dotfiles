@@ -150,9 +150,10 @@ nmap <leader>ft :cs kill 0<CR>:!rm -f tags cscope.out;ctags -R; cscope -Rb<CR>:c
 
 nmap <leader>sh :sh<CR>
 
-"map <C-J> <C-W>j<C-W>_                         " to be observed
-"map <C-K> <C-W>k<C-W>_
-map <C-J> <C-W>j
-map <C-K> <C-W>k
+" <C-W>_ for max
+nmap <C-J> <C-W>j
+nmap <C-K> <C-W>k
+nmap <C-H> <C-W>h
+nmap <C-L> <C-W>l
 
 " }
