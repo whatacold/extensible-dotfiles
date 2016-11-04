@@ -18,6 +18,8 @@ Bundle 'xolox/vim-easytags'
 " Bundle 'vim-scripts/taglist.vim'
 
 Bundle 'vim-scripts/YankRing.vim'
+
+Bundle 'vim-scripts/DrawIt'
 " }
 
 " Remove plugins that are not needed {
