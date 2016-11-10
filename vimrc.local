@@ -10,6 +10,7 @@ set title                                       " show title in terminal
 " see http://www.cnblogs.com/jscode/archive/2012/10/30/2746836.html
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileformats=unix,dos,mac
 
 " Turn backup off, since most stuff is in SVN, git etc. anyway...
 set nobackup
