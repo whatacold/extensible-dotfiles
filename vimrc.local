@@ -127,18 +127,19 @@ nmap <S-Space><S-Space>i
 " avoid to use F<n> key, in case of conflicting with terminal or OS
 " {
 nmap <leader>w :w!<CR>
-nmap <leader>q :qa<CR>
+nmap <leader>q :q<CR>
+nmap <leader>qa :qa<CR>
 
-map <leader>g :Ack<CR>                          " 'g' for grep
+nmap <leader>g :Ack<CR>                          " 'g' for grep
 
 " iterating quickfix list
-map <leader>qn :cnext<CR>
-map <leader>qp :cprev<CR>
+nmap <leader>qn :cnext<CR>
+nmap <leader>qp :cprev<CR>
 nmap <leader>qc :cclose<CR>
 
 " iterating tag stack
-map <leader>tn :tag<CR>
-map <leader>tp :pop<CR>
+nmap <leader>tn :tag<CR>
+nmap <leader>tp :pop<CR>
 
 " plugin sync
 nmap <leader>ps :PluginClean!<CR>:PluginInstall!<CR>
