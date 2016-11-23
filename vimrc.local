@@ -60,8 +60,8 @@ else
     endif
     unlet s:absolute_path
 
-    let g:yankring_replace_n_pkey = '<C-I>'
-    let g:yankring_replace_n_nkey = '<C-O>'
+    " let g:yankring_replace_n_pkey = '<C-I>'
+    " let g:yankring_replace_n_nkey = '<C-O>'
 endif
 
 " cscope {{
@@ -131,6 +131,8 @@ nmap <leader>q :q<CR>
 nmap <leader>qa :qa<CR>
 
 nmap <leader>g :Ack<CR>                          " 'g' for grep
+
+nmap <leader>g :YRShow<CR>
 
 " iterating quickfix list
 nmap <leader>qn :cnext<CR>
