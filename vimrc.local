@@ -22,6 +22,8 @@ set noswapfile
 set expandtab
 set smarttab                                    " Be smart when using tabs ;)
 
+set sessionoptions+=options                     " saving mappings when :mksession
+
 " plugin settings {
 
 " try using sessionman.vim, a much simpler solution.
@@ -60,8 +62,9 @@ else
     endif
     unlet s:absolute_path
 
-    " let g:yankring_replace_n_pkey = '<C-I>'
-    " let g:yankring_replace_n_nkey = '<C-O>'
+    " FIXME why these not work?
+    let g:yankring_replace_n_pkey = '<m-p>'
+    let g:yankring_replace_n_nkey = '<m-n>'
 endif
 
 " cscope {{
