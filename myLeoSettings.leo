@@ -19,7 +19,9 @@
 </v>
 </vnodes>
 <tnodes>
-<t tx="hgw.20161022160237.2">my leo customizations.</t>
+<t tx="hgw.20161022160237.2">my leo customizations.
+
+For Windows: drop this file to user home dir, say C:\Users\foo\</t>
 <t tx="hgw.20161022160321.1"></t>
 <t tx="hgw.20161022160324.1"></t>
 <t tx="hgw.20161022160333.1">horizontal: body pane to the right
