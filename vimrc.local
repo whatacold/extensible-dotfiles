@@ -22,7 +22,7 @@ set noswapfile
 set expandtab
 set smarttab                                    " Be smart when using tabs ;)
 
-set sessionoptions+=options                     " saving mappings when :mksession
+" set sessionoptions+=options                     " saving mappings when :mksession
 
 " plugin settings {
 
@@ -135,7 +135,7 @@ nmap <leader>qa :qa<CR>
 
 nmap <leader>g :Ack<CR>                          " 'g' for grep
 
-nmap <leader>g :YRShow<CR>
+nmap <leader>yr :YRShow<CR>
 
 " iterating quickfix list
 nmap <leader>qn :cnext<CR>
