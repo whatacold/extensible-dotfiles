@@ -22,6 +22,9 @@ set noswapfile
 set expandtab
 set smarttab                                    " Be smart when using tabs ;)
 
+" Disable beeping
+set t_vb=
+
 " set sessionoptions+=options                     " saving mappings when :mksession
 
 " plugin settings {
