@@ -40,8 +40,8 @@ set t_vb=
 " xolox/vim-easytags
 " This plugin requires Exuberant Ctags
 set cpoptions+=d                                " treat ./tags as in Vi, relative to CWD.
-let g:easytags_async = 1
-let g:easytags_dynamic_files = 1                " friendly to project-specifc tags
+"let g:easytags_async = 1
+"let g:easytags_dynamic_files = 1                " friendly to project-specifc tags
 
 let g:tagbar_left = 1
 let g:tagbar_width = 30

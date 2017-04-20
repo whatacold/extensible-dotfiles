@@ -11,7 +11,7 @@
 " required by 'xolox/vim-session'
 Bundle 'xolox/vim-misc'
 "Bundle 'xolox/vim-session'
-Bundle 'xolox/vim-easytags'
+"Bundle 'xolox/vim-easytags'
 
 " This github mirror version is out-of-date
 " TagBar is an alternative for this?
