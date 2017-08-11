@@ -5,7 +5,9 @@ conf=~/.dotfilesrc
 cd `dirname $0`
 
 ln -sf $PWD/astylerc ~/.astylerc
+
 ln -sf $PWD/ackrc ~/.ackrc
+ln -sf $PWD/agignore ~/.agignore
 
 # spf13-vim
 ln -sf $PWD/vimrc.before.local ~/.vimrc.before.local
