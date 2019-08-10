@@ -19,3 +19,5 @@
 	prompt = false
 [diff]
 	tool = meld
+[merge]
+	conflictStyle = diff3
