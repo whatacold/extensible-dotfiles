@@ -4,6 +4,8 @@ conf=~/.dotfilesrc
 
 cd `dirname $0`
 
+cp -r .config ~/
+
 ln -sf $PWD/astylerc ~/.astylerc
 
 ln -sf $PWD/ackrc ~/.ackrc
