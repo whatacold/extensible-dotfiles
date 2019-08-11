@@ -1,12 +1,8 @@
-This repository contains my personal setting of some softwares,
-including:
-
-- vim
-
-- oh-my-zsh
+This repository contains my personal settings for some software, including:
 
 - ack
-
 - astyle
-
+- i3wm
 - leo editor
+- oh-my-zsh
+- vim

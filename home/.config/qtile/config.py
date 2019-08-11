@@ -75,6 +75,7 @@ for i in groups:
     ])
 
 layouts = [
+    layout.Tile(),
     layout.Max(),
     layout.Stack(num_stacks=2)
 ]
