@@ -52,7 +52,7 @@ keys = [
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
-    Key([mod], "Return", lazy.spawn("xterm")),
+    Key([mod], "Return", lazy.spawn("gnome-terminal")),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout()),
@@ -63,7 +63,7 @@ keys = [
     Key([mod], "r", lazy.spawncmd()),
 ]
 
-groups = [Group(i) for i in "asdfuiop"]
+groups = [Group(i) for i in "asdf"]
 
 for i in groups:
     keys.extend([
@@ -82,7 +82,7 @@ layouts = [
 
 widget_defaults = dict(
     font='sans',
-    fontsize=12,
+    fontsize=16,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -114,7 +114,7 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
-main = None
+main = None # callback entrance, e.g. def main(qtile_instance): pass
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
