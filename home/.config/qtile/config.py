@@ -100,6 +100,7 @@ screens = [
                 widget.WindowName(),
                 widget.TextBox("Qtile rocks!", name="default"),
                 widget.Systray(),
+                widget.Battery(),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
             ],
             24,
