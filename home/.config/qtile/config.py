@@ -26,11 +26,29 @@
 
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.command import lazy
-from libqtile import layout, bar, widget
+from libqtile import layout, bar, widget, hook
 
 from typing import List  # noqa: F401
+import os
+import subprocess
 
 mod = "mod4"
+
+@hook.subscribe.screen_change
+def set_screens(qtile, event):
+    xrandr_state = subprocess.check_output(["xrandr"])
+    if b"DP-1 connected" in xrandr_state:
+        xrandr_command = [
+            "xrandr",
+            "--output", "eDP-1", "--off",
+        ]
+    else:
+        xrandr_command = [
+            "xrandr",
+            "--output", "eDP-1", "--auto",
+        ]
+    subprocess.call(xrandr_command)
+    qtile.cmd_restart()
 
 keys = [
     # Switch between windows in current stack pane(only pointer is moved around)
@@ -54,31 +72,36 @@ keys = [
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
+
     Key([mod], "Return", lazy.spawn("gnome-terminal")),
+    Key([], "Scroll_Lock", lazy.spawn("i3lock -d")),
+    Key([mod], "e", lazy.spawn("emacs")),
+    Key([mod], "c", lazy.spawn("google-chrome")),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout()),
-    Key([mod], "w", lazy.window.kill()),
+    Key([mod], "x", lazy.window.kill()),
 
     Key([mod, "control"], "r", lazy.restart()),
     Key([mod, "control"], "q", lazy.shutdown()),
     Key([mod], "r", lazy.spawncmd()),
 ]
 
-groups = [Group(i) for i in "asdf"]
+groups = [Group(i) for i in "123456789"]
 
 for i in groups:
     keys.extend([
         # mod1 + letter of group = switch to group
         Key([mod], i.name, lazy.group[i.name].toscreen()),
-
         # mod1 + shift + letter of group = switch to & move focused window to group
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
     ])
 
+emacs_purple='#7359B5'
 layouts = [
     layout.Tile(
-        border_focus='#7359B5',
+        border_focus=emacs_purple,
+        border_width=2,
         ),
     layout.Max(),
     layout.Stack(num_stacks=2)
@@ -86,22 +109,24 @@ layouts = [
 
 widget_defaults = dict(
     font='sans',
-    fontsize=18,
+    fontsize=14,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
 
+prompt = "{} $ ".format(os.environ["USER"])
 screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.Prompt(prompt=prompt),
+                widget.CurrentLayoutIcon(scale=0.6, padding=-4),
+                widget.Spacer(width=10),
                 widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.TextBox("Qtile rocks!", name="default"),
                 widget.Systray(),
+                widget.Notify(fmt=" 🔥 {} "),
                 widget.Battery(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                widget.Clock(format='%m-%d %a %H:%M %p'),
             ],
             24,
         ),
