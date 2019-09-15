@@ -98,13 +98,26 @@ for i in groups:
     ])
 
 emacs_purple='#7359B5'
+border_width = 2
+border = dict(
+    border_focus=emacs_purple,
+    border_width=border_width
+)
+
 layouts = [
-    layout.Tile(
-        border_focus=emacs_purple,
-        border_width=2,
-        ),
+    layout.Tile(**border),
     layout.Max(),
-    layout.Stack(num_stacks=2)
+    layout.Stack(num_stacks=2),
+    layout.Bsp(name="bsp", margin=20, **border),
+    layout.Columns(name="columns", **border),
+    layout.Matrix(name="matrix", **border),
+    layout.MonadTall(name="monadtall", **border),
+    layout.MonadWide(name="monadwide", **border),
+    layout.RatioTile(name="ratiotile", **border),
+    #layout.Slice(name="slice"),  # Makes the session freeze
+    layout.TreeTab(name="treetab", border_width=border_width),
+    layout.VerticalTile(name="verticaltile", **border),
+    layout.Zoomy(name="zoomy"),
 ]
 
 widget_defaults = dict(
@@ -117,9 +130,10 @@ extension_defaults = widget_defaults.copy()
 prompt = "{} $ ".format(os.environ["USER"])
 screens = [
     Screen(
-        top=bar.Bar(
+        bottom=bar.Bar(
             [
                 widget.Prompt(prompt=prompt),
+                widget.CurrentLayout(),
                 widget.CurrentLayoutIcon(scale=0.6, padding=-4),
                 widget.Spacer(width=10),
                 widget.GroupBox(),
