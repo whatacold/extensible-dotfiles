@@ -61,9 +61,6 @@ keys = [
     Key([mod, "control"], "k", lazy.layout.shuffle_down()),
     Key([mod, "control"], "j", lazy.layout.shuffle_up()),
 
-    # Switch window focus to other pane(s) of stack
-    Key([mod], "space", lazy.layout.next()),
-
     # Swap panes of split stack
     Key([mod, "shift"], "space", lazy.layout.rotate()),
 
@@ -159,7 +156,7 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
-main = None # callback entrance, e.g. def main(qtile_instance): pass
+
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
@@ -191,3 +188,8 @@ focus_on_window_activation = "smart"
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+# callback entrance, e.g. def main(qtile_instance): pass
+def main(qtile):
+    subprocess.run(["ibus-daemon", "-drx"])
+
