@@ -84,7 +84,7 @@ keys = [
     Key([mod], "r", lazy.spawncmd()),
 ]
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i) for i in "1234567890"]
 
 for i in groups:
     keys.extend([
@@ -135,6 +135,8 @@ screens = [
                 widget.Spacer(width=10),
                 widget.GroupBox(center_aligned=True),
                 widget.Systray(),
+                widget.TextBox('Vol:'),
+                widget.Volume(),
                 widget.Notify(fmt=" 🔥 {} "),
                 widget.Battery(),
                 widget.Clock(format='%m-%d %a %H:%M %p',
