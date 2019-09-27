@@ -105,19 +105,18 @@ border = dict(
 )
 
 layouts = [
-    layout.Tile(**border),
+    layout.MonadTall(name="monadtall", **border),
     layout.Max(),
     layout.Stack(num_stacks=2),
-    layout.Bsp(name="bsp", margin=20, **border),
     layout.Columns(name="columns", **border),
-    layout.Matrix(name="matrix", **border),
-    layout.MonadTall(name="monadtall", **border),
-    layout.MonadWide(name="monadwide", **border),
-    layout.RatioTile(name="ratiotile", **border),
-    #layout.Slice(name="slice"),  # Makes the session freeze
-    layout.TreeTab(name="treetab", border_width=border_width),
-    layout.VerticalTile(name="verticaltile", **border),
-    layout.Zoomy(name="zoomy"),
+    #layout.Tile(**border),
+    #layout.Bsp(name="bsp", margin=20, **border),
+    #layout.Matrix(name="matrix", **border),
+    #layout.MonadWide(name="monadwide", **border),
+    #layout.RatioTile(name="ratiotile", **border),
+    #layout.TreeTab(name="treetab", border_width=border_width),
+    #layout.VerticalTile(name="verticaltile", **border),
+    #layout.Zoomy(name="zoomy"),
 ]
 
 widget_defaults = dict(
