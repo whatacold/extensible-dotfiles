@@ -80,6 +80,7 @@ keys = [
     Key([], "Scroll_Lock", lazy.spawn("i3lock -d")),
     Key([mod], "e", lazy.spawn("emacs")),
     Key([mod], "c", lazy.spawn("google-chrome")),
+    Key([mod], "z", lazy.spawn("zeal")),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout()),
@@ -111,11 +112,11 @@ border = dict(
 )
 
 layouts = [
+    layout.Tile(add_after_last=True, **border),
     layout.MonadTall(name="monadtall", **border),
     layout.Max(),
     layout.Stack(num_stacks=2),
     layout.Columns(name="columns", **border),
-    #layout.Tile(**border),
     #layout.Bsp(name="bsp", margin=20, **border),
     #layout.Matrix(name="matrix", **border),
     #layout.MonadWide(name="monadwide", **border),
@@ -132,20 +133,21 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-prompt = "{} $ ".format(os.environ["USER"])
 screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.Prompt(prompt=prompt),
+                widget.Prompt(prompt="🐶 "),
                 widget.CurrentLayout(),
-                widget.CurrentLayoutIcon(scale=0.6, padding=-4),
                 widget.Spacer(width=10),
-                widget.GroupBox(center_aligned=True),
+                widget.GroupBox(disable_drag=True),
                 widget.Systray(),
                 widget.Volume(fmt="🔉 {}"),
                 widget.Notify(fmt="💡 {}"),
-                widget.Battery(fmt="🔋 {}"),
+                widget.Battery(
+                    fmt="🔋 {}",
+                    format='{char} {percent:2.0%} {hour:d}:{min:02d}',
+                ),
                 widget.Clock(fmt="☯ {}",
                              format='%m-%d %a %H:%M %p',
                              update_interval=60),
@@ -170,22 +172,25 @@ dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
-floating_layout = layout.Floating(float_rules=[
-    {'wmclass': 'confirm'},
-    {'wmclass': 'dialog'},
-    {'wmclass': 'download'},
-    {'wmclass': 'error'},
-    {'wmclass': 'file_progress'},
-    {'wmclass': 'notification'},
-    {'wmclass': 'splash'},
-    {'wmclass': 'toolbar'},
-    {'wmclass': 'confirmreset'},  # gitk
-    {'wmclass': 'makebranch'},  # gitk
-    {'wmclass': 'maketag'},  # gitk
-    {'wname': 'branchdialog'},  # gitk
-    {'wname': 'pinentry'},  # GPG key password entry
-    {'wmclass': 'ssh-askpass'},  # ssh-askpass
-])
+floating_layout = layout.Floating(
+    float_rules=[
+        {'wmclass': 'confirm'},
+        {'wmclass': 'dialog'},
+        {'wmclass': 'download'},
+        {'wmclass': 'error'},
+        {'wmclass': 'file_progress'},
+        {'wmclass': 'notification'},
+        {'wmclass': 'splash'},
+        {'wmclass': 'toolbar'},
+        {'wmclass': 'confirmreset'},  # gitk
+        {'wmclass': 'makebranch'},  # gitk
+        {'wmclass': 'maketag'},  # gitk
+        {'wmclass': 'ssh-askpass'},  # ssh-askpass
+        {'wname': 'branchdialog'},  # gitk
+        {'wname': 'pinentry'},  # GPG key password entry
+    ],
+    **border
+)
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 
