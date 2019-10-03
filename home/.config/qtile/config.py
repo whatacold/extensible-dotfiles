@@ -34,6 +34,12 @@ import subprocess
 
 mod = "mod4"
 
+# https://wiki.archlinux.org/index.php/IBus
+# For some applications, e.g. Emacs, ibus can't input Chinese without these.
+# There are only two here as in GNOME.
+os.environ["QT_IM_MODULE"] = "ibus"
+os.environ["XMODIFIERS"] = "@im=ibus"
+
 @hook.subscribe.screen_change
 def set_screens(qtile, event):
     xrandr_state = subprocess.check_output(["xrandr"])
