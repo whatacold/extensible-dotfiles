@@ -35,12 +35,13 @@ import subprocess
 mod = "mod4"
 
 # https://wiki.archlinux.org/index.php/IBus
-# For some applications, e.g. Emacs, ibus can't input Chinese without these.
+# For some applications, e.g. Emacs, ibus doesn't work without these.
 # There are only two here as in GNOME.
 os.environ["QT_IM_MODULE"] = "ibus"
 os.environ["XMODIFIERS"] = "@im=ibus"
 
-@hook.subscribe.screen_change
+
+#@hook.subscribe.screen_change
 def set_screens(qtile, event):
     xrandr_state = subprocess.check_output(["xrandr"])
     if b"DP-1 connected" in xrandr_state:
@@ -55,6 +56,7 @@ def set_screens(qtile, event):
         ]
     subprocess.call(xrandr_command)
     qtile.cmd_restart()
+
 
 keys = [
     # Switch between windows in current stack pane(only pointer is moved around)
@@ -104,7 +106,7 @@ for i in groups:
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
     ])
 
-emacs_purple='#7359B5'
+emacs_purple = '#7359B5'
 border_width = 2
 border = dict(
     border_focus=emacs_purple,
@@ -204,7 +206,23 @@ focus_on_window_activation = "smart"
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
 
+
+def enable_tap_to_click():
+    # Enable "Tap to Click"
+    # https://www.reddit.com/r/i3wm/comments/516e8c/tap_to_click_touchpad/d79onal
+    # Currently it's system specific.
+    device = 'DLL0665:01 06CB:76AD Touchpad'
+    try:
+        id = subprocess.check_output(["xinput", "list", "--id-only", device],
+                                     encoding='utf-8')
+        id = id.strip()
+    except Exception:
+        return
+    subprocess.run(["xinput", "set-prop", id, "317", "1"])
+    subprocess.run(["xinput", "set-prop", id, "318", "1"])
+
+
 # callback entrance, e.g. def main(qtile_instance): pass
 def main(qtile):
     subprocess.run(["ibus-daemon", "-drx"])
-
+    enable_tap_to_click()
