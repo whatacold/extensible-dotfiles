@@ -72,6 +72,7 @@ keys = [
     # Swap panes of split stack
     Key([mod, "shift"], "space", lazy.layout.rotate()),
 
+    # Only available for bsp, columns, and stack layout.
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -80,6 +81,7 @@ keys = [
 
     Key([mod], "Return", lazy.spawn("gnome-terminal")),
     Key([], "Scroll_Lock", lazy.spawn("i3lock -d")),
+    Key([mod], "grave", lazy.screen.toggle_group()),
     Key([mod], "e", lazy.spawn("emacs")),
     Key([mod], "c", lazy.spawn("google-chrome")),
     Key([mod], "z", lazy.spawn("zeal")),
@@ -100,10 +102,10 @@ groups = [Group(i) for i in "1234567890"]
 
 for i in groups:
     keys.extend([
-        # mod1 + letter of group = switch to group
+        # mod + letter of group = switch to group
         Key([mod], i.name, lazy.group[i.name].toscreen()),
-        # mod1 + shift + letter of group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
+        # mod + shift + letter of group = move focused window to that group
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True)),
     ])
 
 emacs_purple = '#7359B5'
@@ -119,13 +121,13 @@ layouts = [
     layout.Max(),
     layout.Stack(num_stacks=2),
     layout.Columns(name="columns", **border),
-    #layout.Bsp(name="bsp", margin=20, **border),
-    #layout.Matrix(name="matrix", **border),
-    #layout.MonadWide(name="monadwide", **border),
-    #layout.RatioTile(name="ratiotile", **border),
-    #layout.TreeTab(name="treetab", border_width=border_width),
-    #layout.VerticalTile(name="verticaltile", **border),
-    #layout.Zoomy(name="zoomy"),
+    # layout.Bsp(name="bsp", margin=20, **border),
+    # layout.Matrix(name="matrix", **border),
+    # layout.MonadWide(name="monadwide", **border),
+    # layout.RatioTile(name="ratiotile", **border),
+    # layout.TreeTab(name="treetab", border_width=border_width),
+    # layout.VerticalTile(name="verticaltile", **border),
+    # layout.Zoomy(name="zoomy"),
 ]
 
 widget_defaults = dict(
