@@ -58,6 +58,29 @@ def set_screens(qtile, event):
     qtile.cmd_restart()
 
 
+def build_widgets():
+    widgets = [
+        widget.Prompt(prompt="🐶 "),
+        widget.CurrentLayout(),
+        widget.Spacer(width=10),
+        widget.GroupBox(disable_drag=True),
+        widget.Systray(),
+        widget.Volume(fmt="🔉 {}"),
+        widget.Notify(fmt="💡 {}"),
+    ]
+
+    if os.path.isdir("/sys/class/power_supply/BAT0"):
+        widgets.append(widget.Battery(
+            fmt="🔋 {}",
+            format='{char} {percent:2.0%} {hour:d}:{min:02d}',
+        ))
+
+    widgets.append(widget.Clock(
+        fmt="☯ {}",
+        format='%m-%d %a %H:%M %p',
+        update_interval=60))
+    return widgets
+
 keys = [
     # Switch between windows in current stack pane(only pointer is moved around)
     Key([mod], "h", lazy.layout.left()),
@@ -139,25 +162,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
-            [
-                widget.Prompt(prompt="🐶 "),
-                widget.CurrentLayout(),
-                widget.Spacer(width=10),
-                widget.GroupBox(disable_drag=True),
-                widget.Systray(),
-                widget.Volume(fmt="🔉 {}"),
-                widget.Notify(fmt="💡 {}"),
-                widget.Battery(
-                    fmt="🔋 {}",
-                    format='{char} {percent:2.0%} {hour:d}:{min:02d}',
-                ),
-                widget.Clock(fmt="☯ {}",
-                             format='%m-%d %a %H:%M %p',
-                             update_interval=60),
-            ],
-            28,
-        ),
+        bottom=bar.Bar(build_widgets(), 28),
     ),
 ]
 
