@@ -105,7 +105,7 @@ keys = [
     Key([mod], "Return", lazy.spawn("gnome-terminal")),
     Key([], "Scroll_Lock", lazy.spawn("i3lock -d")),
     Key([mod], "grave", lazy.screen.toggle_group()),
-    Key([mod], "e", lazy.spawn("emacs")),
+    Key([mod], "e", lazy.spawn("emacsclient --eval '(make-frame-command)'")),
     Key([mod], "c", lazy.spawn("google-chrome")),
     Key([mod], "z", lazy.spawn("zeal")),
 
