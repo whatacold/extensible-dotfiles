@@ -27,10 +27,12 @@
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.lazy import lazy
 from libqtile import layout, bar, widget, hook
+from libqtile.log_utils import logger
 
 from typing import List  # noqa: F401
 import os
 import subprocess
+import time
 
 mod = "mod4"
 
@@ -41,20 +43,15 @@ os.environ["QT_IM_MODULE"] = "ibus"
 os.environ["XMODIFIERS"] = "@im=ibus"
 
 
-#@hook.subscribe.screen_change
+# @hook.subscribe.screen_change
 def set_screens(qtile, event):
+    logger.warning("screen change event")
     xrandr_state = subprocess.check_output(["xrandr"])
     if b"DP-1 connected" in xrandr_state:
-        xrandr_command = [
-            "xrandr",
-            "--output", "eDP-1", "--off",
-        ]
+        xrandr_command = "xrandr --output eDP-1 --off --output DP-1 --auto"
     else:
-        xrandr_command = [
-            "xrandr",
-            "--output", "eDP-1", "--auto",
-        ]
-    subprocess.call(xrandr_command)
+        xrandr_command = "xrandr --output eDP-1 --auto"  # FIXME why this fails
+    subprocess.call(xrandr_command.split())
     qtile.cmd_restart()
 
 
@@ -132,7 +129,7 @@ for i in groups:
     ])
 
 emacs_purple = '#7359B5'
-border_width = 2
+border_width = 1
 border = dict(
     border_focus=emacs_purple,
     border_width=border_width
@@ -140,10 +137,10 @@ border = dict(
 
 layouts = [
     layout.Tile(add_after_last=True, **border),
-    layout.MonadTall(name="monadtall", **border),
+    layout.MonadTall(**border),
     layout.Max(),
     layout.Stack(num_stacks=2),
-    layout.Columns(name="columns", **border),
+    layout.Columns(**border),
     # layout.Bsp(name="bsp", margin=20, **border),
     # layout.Matrix(name="matrix", **border),
     # layout.MonadWide(name="monadwide", **border),
