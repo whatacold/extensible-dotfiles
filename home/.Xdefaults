@@ -1,4 +1,5 @@
 ! Based on https://github.com/ramnes/dotfiles
+URxvt.termName: xterm-256color
 
 ! You can make URLs in the terminal clickable using the matcher extension
 URxvt.perl-ext-common: default,matcher
@@ -7,9 +8,9 @@ URxvt.matcher.button: 1
 URxvt.saveLines: 99999
 URxvt.scrollBar: false
 
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=16
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=20
 URxvt.letterSpace: -1
-URxvt.boldFont: xft:DejaVu Sans Mono:style=Bold:pixelsize=16
+URxvt.boldFont: xft:DejaVu Sans Mono:style=Bold:pixelsize=20
 
 URxvt.depth: 32
 ! URxvt.foreground: #FFFFFF
