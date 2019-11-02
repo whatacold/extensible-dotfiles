@@ -1,8 +1,9 @@
 ! Based on https://github.com/ramnes/dotfiles
 URxvt.termName: xterm-256color
 
+! System-wide extentions path: /usr/lib64/urxvt/perl
 ! You can make URLs in the terminal clickable using the matcher extension
-URxvt.perl-ext-common: default,matcher
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard
 URxvt.matcher.button: 1
 
 URxvt.saveLines: 99999
