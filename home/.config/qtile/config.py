@@ -99,10 +99,11 @@ keys = [
     # multiple stack panes
     Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
 
-    Key([mod], "Return", lazy.spawn("gnome-terminal")),
+    Key([mod], "Return", lazy.spawn("urxvt256c-ml")),
     Key([], "Scroll_Lock", lazy.spawn("i3lock -d")),
     Key([mod], "grave", lazy.screen.toggle_group()),
     Key([mod], "e", lazy.spawn("emacsclient --eval '(make-frame-command)'")),
+    Key([mod, "shift"], "e", lazy.spawn("emacs")),
     Key([mod], "c", lazy.spawn("google-chrome")),
     Key([mod], "z", lazy.spawn("zeal")),
 
