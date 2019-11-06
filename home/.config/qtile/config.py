@@ -138,6 +138,7 @@ border = dict(
 layouts = [
     layout.Tile(add_after_last=True, **border),
     layout.MonadTall(**border),
+    layout.MonadWide(**border),
     layout.Max(),
     layout.Stack(num_stacks=2),
     layout.Columns(**border),
