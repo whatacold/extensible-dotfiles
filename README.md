@@ -24,3 +24,4 @@ Typical SSH config snippet for `~/.ssh/config`:
         IdentityFile ~/.ssh/foo_key
 
 P.S. Generate a key pair by `ssh-keygen -t rsa -b 4096 -f /tmp/foo -C "your_email@example.com"`, where the email address is optional.
+P.P.S. Copy key id to another host by `ssh-copy-id foo@1.2.3.4`, it will append a record to `~/.ssh/authorized_keys` on that host.
