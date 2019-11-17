@@ -9,9 +9,10 @@ URxvt.matcher.button: 1
 URxvt.saveLines: 99999
 URxvt.scrollBar: false
 
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=20
-URxvt.letterSpace: -1
+! `fc-list` to list fonts
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=20, xft:WenQuanYi Micro Hei Mono:size=16
 URxvt.boldFont: xft:DejaVu Sans Mono:style=Bold:pixelsize=20
+URxvt.letterSpace: -1
 
 URxvt.depth: 32
 ! URxvt.foreground: #FFFFFF
