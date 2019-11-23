@@ -1,6 +1,6 @@
-[user]
-	name = Guangwang Huang
-	email = whatacold@gmail.com
+#[user]
+#	name = Guangwang Huang
+#	email = whatacold@gmail.com
 [core]
 	editor = vim
 	autocrlf = false
