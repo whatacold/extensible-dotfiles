@@ -108,7 +108,8 @@ keys = [
     Key([mod], "z", lazy.spawn("zeal")),
 
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout()),
+    Key([mod], "Right", lazy.next_layout()),
+    Key([mod], "Left", lazy.prev_layout()),
 
     Key([mod], "x", lazy.window.kill()),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
