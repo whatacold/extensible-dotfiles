@@ -139,9 +139,9 @@ border = dict(
 
 layouts = [
     layout.Tile(add_after_last=True, **border),
-    layout.MonadTall(**border),
-    layout.MonadWide(**border),
     layout.Max(),
+    layout.MonadWide(**border, ratio=0.618),
+    layout.MonadTall(**border),
     layout.Stack(num_stacks=2),
     layout.Columns(**border),
     # layout.Bsp(name="bsp", margin=20, **border),
