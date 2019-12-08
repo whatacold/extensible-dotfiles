@@ -1,11 +1,12 @@
 " vim: set ft=vim:
+" Keep it minimal, basically for viewing files.
 
-set background=light
-colorscheme solarized
+" set background=light
+" colorscheme solarized
 
 set mouse=""
-
 set title                                       " show title in terminal
+set number                                      " show line numbers
 
 if has('gui_running')
     if !exists("g:spf13_no_big_font")
@@ -21,8 +22,8 @@ endif
 
 " encodings
 " see http://www.cnblogs.com/jscode/archive/2012/10/30/2746836.html
-set encoding=utf-8
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set encoding=utf-8                                                      " internal encoding
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1 " file encoding detection
 set fileformats=unix,dos,mac
 
 " Turn backup off, since most stuff is in SVN, git etc. anyway...
@@ -31,152 +32,20 @@ set nowb
 set noswapfile
 
 " use `CTRL-V<TAB>` to insert a real tab in Insert mode.
-" use `:retab` to convert real tabs in legacy files.
+" use `:retab` to convert real tabs to spaces in legacy files.
 set expandtab
 set smarttab                                    " Be smart when using tabs ;)
 
 " Disable beeping
 set t_vb=
 
-" set sessionoptions+=options                     " saving mappings when :mksession
-
-" plugin settings {
-
-" try using sessionman.vim, a much simpler solution.
-" xolox/vim-session
-"let g:session_autosave = 'yes'
-"let g:session_autoload = 'no'
-"let g:session_command_aliases = 1               " type :Session<Tab> to get completion
-"let g:session_directory = '~/.vimsessions/'     " not affected by spf-vim update
-"let g:session_menu = 0                          " no GUI menu
-
-" xolox/vim-easytags
-" This plugin requires Exuberant Ctags
-set cpoptions+=d                                " treat ./tags as in Vi, relative to CWD.
-"let g:easytags_async = 1
-"let g:easytags_dynamic_files = 1                " friendly to project-specifc tags
-
-let g:tagbar_left = 1
-let g:tagbar_width = 30
-
-let NERDTreeWinPos = "right"
-let NERDTreeWinSize = 30
-
-" YankRing
-if has("win16") || has("win32")
-    " do nothing
-else
-    let g:yankring_clipboard_monitor = 1        " +xterm_clipboard feature should be present.
-    let g:yankring_manual_clipboard_check = 1
-
-    " TODO the plugin should mkdir for users.
-    let g:yankring_history_dir = '~/.vim_misc/'
-    " an alternative for expand() is fnamemodify().
-    let s:absolute_path = expand(g:yankring_history_dir)
-    if exists("*mkdir") && !isdirectory(s:absolute_path)
-        call mkdir(expand(s:absolute_path), 'p')
-    endif
-    unlet s:absolute_path
-
-    " FIXME why these not work?
-    let g:yankring_replace_n_pkey = '<m-p>'
-    let g:yankring_replace_n_nkey = '<m-n>'
-endif
-
-" cscope {{
-" Use the setting in "Suggested usage" of the cscope manual
-if has("cscope")
-    set csprg=cscope
-    set cst             " cscopetag, replace all instance of the :tag command with :cstag
-    set csto=0          " cscope db first, then ctags db.
-    set nocsverb
-    " add any database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out
-        " else add database pointed to by environment
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
-    set csverb
-endif
-nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-
-" Using 'Shift-spacebar' then a search type makes the vim window
-" split horizontally, with search result displayed in
-" the new window.
-nmap <S-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <S-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <S-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>
-nmap <S-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <S-Space>t :scs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <S-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <S-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <S-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-
-" Hitting Shift-space *twice* before the search type does a vertical
-" split instead of a horizontal one
-nmap <S-Space><S-Space>s
-            \:vert scs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <S-Space><S-Space>g
-            \:vert scs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <S-Space><S-Space>d
-            \:vert scs find d <C-R>=expand("<cword>")<CR><CR>
-nmap <S-Space><S-Space>c
-            \:vert scs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <S-Space><S-Space>t
-            \:vert scs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <S-Space><S-Space>e
-            \:vert scs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <S-Space><S-Space>f
-            \:vert scs find f ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <S-Space><S-Space>i
-            \:vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-" }}
+"incremental search
+set incsearch
+"highlight search
+set hlsearch
+"searches are case insensitive unless they contain at least one capital letter
+set ignorecase
+set smartcase
 
 " }
 
-" hotkeys
-" avoid to use F<n> key, in case of conflicting with terminal or OS
-" {
-nmap <leader>w :w!<CR>
-nmap <leader>q :q<CR>
-nmap <leader>qa :qa<CR>
-
-nmap <leader>g :Ack<CR>                          " 'g' for grep
-
-nmap <leader>yr :YRShow<CR>
-
-" iterating quickfix list
-nmap <leader>qn :cnext<CR>
-nmap <leader>qp :cprev<CR>
-nmap <leader>qc :cclose<CR>
-
-" iterating tag stack
-nmap <leader>tn :tag<CR>
-nmap <leader>tp :pop<CR>
-
-" plugin sync
-nmap <leader>ps :PluginClean!<CR>:PluginInstall!<CR>
-
-nmap <leader>sy :echo "please manually add this mapping for sync'ing files"<CR>
-
-" flush tags
-" FIXME works when 'cs kill' fails.
-nmap <leader>ft :cs kill 0<CR>:!rm -f tags cscope.out;ctags -R; cscope -Rb<CR>:cs add cscope.out<CR>
-
-nmap <leader>sh :sh<CR>
-
-" <C-W>_ for max
-nmap <C-J> <C-W>j
-nmap <C-K> <C-W>k
-nmap <C-H> <C-W>h
-nmap <C-L> <C-W>l
-
-" }
