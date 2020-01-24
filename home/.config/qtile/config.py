@@ -232,4 +232,9 @@ def enable_tap_to_click():
 # callback entrance, e.g. def main(qtile_instance): pass
 def main(qtile):
     subprocess.run(["ibus-daemon", "-drx"])
+
+    # Set a wallpaper
+    subprocess.run(["feh", "--bg-fill",
+                    "/usr/share/backgrounds/f29/default/standard/f29.png"])
+
     enable_tap_to_click()
