@@ -76,6 +76,11 @@ def build_widgets():
         fmt="☯ {}",
         format='%m-%d %a %H:%M %p',
         update_interval=60))
+
+    widgets.append(widget.QuickExit(
+        countdown_start=1
+    ))
+
     return widgets
 
 keys = [
