@@ -32,9 +32,10 @@ from libqtile.log_utils import logger
 from typing import List  # noqa: F401
 import os
 import subprocess
-import time
+
 
 mod = "mod4"
+
 
 # https://wiki.archlinux.org/index.php/IBus
 # For some applications, e.g. Emacs, ibus doesn't work without these.
@@ -83,14 +84,15 @@ def build_widgets():
 
     return widgets
 
+
 keys = [
-    # Switch between windows in current stack pane(only pointer is moved around)
+    # Switch between windows in current stack pane(only focus is moved around)
     Key([mod], "h", lazy.layout.left()),
     Key([mod], "j", lazy.layout.down()),
     Key([mod], "k", lazy.layout.up()),
     Key([mod], "l", lazy.layout.right()),
 
-    # Move windows up or down in current stack(windows are sheffuled)
+    # Move windows up or down in current stack(windows are shuffled)
     Key([mod, "control"], "k", lazy.layout.shuffle_down()),
     Key([mod, "control"], "j", lazy.layout.shuffle_up()),
 
@@ -109,7 +111,7 @@ keys = [
     Key([mod], "grave", lazy.screen.toggle_group()),
     Key([mod], "e", lazy.spawn("emacsclient --eval '(make-frame-command)'")),
     Key([mod, "shift"], "e", lazy.spawn("emacs")),
-    Key([mod], "c", lazy.spawn("google-chrome")),
+    Key([mod], "c", lazy.spawn("firefox")),
     Key([mod], "z", lazy.spawn("zeal")),
 
     # Toggle between different layouts as defined below
@@ -132,7 +134,8 @@ for i in groups:
         # mod + letter of group = switch to group
         Key([mod], i.name, lazy.group[i.name].toscreen()),
         # mod + shift + letter of group = move focused window to that group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True)),
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name,
+                                                        switch_group=True)),
     ])
 
 emacs_purple = '#7359B5'
@@ -171,6 +174,7 @@ screens = [
     ),
 ]
 
+
 # Drag floating layouts.
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
@@ -188,6 +192,7 @@ bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
     float_rules=[
+        # Use `xprop` to see wmclass and wname
         {'wmclass': 'confirm'},
         {'wmclass': 'dialog'},
         {'wmclass': 'download'},
@@ -196,15 +201,18 @@ floating_layout = layout.Floating(
         {'wmclass': 'notification'},
         {'wmclass': 'splash'},
         {'wmclass': 'toolbar'},
+        {'wmclass': 'Xephyr'},
         {'wmclass': 'confirmreset'},  # gitk
-        {'wmclass': 'makebranch'},  # gitk
-        {'wmclass': 'maketag'},  # gitk
-        {'wmclass': 'ssh-askpass'},  # ssh-askpass
-        {'wname': 'branchdialog'},  # gitk
-        {'wname': 'pinentry'},  # GPG key password entry
+        {'wmclass': 'makebranch'},    # gitk
+        {'wmclass': 'maketag'},       # gitk
+        {'wmclass': 'ssh-askpass'},   # ssh-askpass
+        {'wname': 'branchdialog'},    # gitk
+        {'wname': 'pinentry'},        # GPG key password entry
     ],
     **border
 )
+
+
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 
