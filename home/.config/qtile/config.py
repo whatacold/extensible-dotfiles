@@ -106,13 +106,14 @@ keys = [
     # multiple stack panes
     Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
 
+    Key([mod], "grave", lazy.screen.toggle_group()),
     Key([mod], "Return", lazy.spawn("urxvt256c-ml")),
     Key([], "Scroll_Lock", lazy.spawn("i3lock -d")),
-    Key([mod], "grave", lazy.screen.toggle_group()),
     Key([mod], "e", lazy.spawn("emacsclient --eval '(make-frame-command)'")),
     Key([mod, "shift"], "e", lazy.spawn("emacs")),
     Key([mod], "c", lazy.spawn("firefox")),
     Key([mod], "z", lazy.spawn("zeal")),
+    Key([mod], "q", lazy.spawn("nautilus")),
 
     # Toggle between different layouts as defined below
     Key([mod], "Right", lazy.next_layout()),
@@ -152,11 +153,11 @@ layouts = [
     layout.MonadTall(**border),
     layout.Stack(num_stacks=2),
     layout.Columns(**border),
+    layout.TreeTab(border_width=border_width),
     # layout.Bsp(name="bsp", margin=20, **border),
     # layout.Matrix(name="matrix", **border),
     # layout.MonadWide(name="monadwide", **border),
     # layout.RatioTile(name="ratiotile", **border),
-    # layout.TreeTab(name="treetab", border_width=border_width),
     # layout.VerticalTile(name="verticaltile", **border),
     # layout.Zoomy(name="zoomy"),
 ]
