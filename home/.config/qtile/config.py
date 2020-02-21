@@ -78,7 +78,13 @@ def build_widgets():
         format='%m-%d %a %H:%M %p',
         update_interval=60))
 
+    widgets.append(widget.WindowName(
+        fmt="📺 {}"
+    ))
+
     widgets.append(widget.QuickExit(
+        fmt="🚜 {}",
+        default_text=" Exit",
         countdown_start=1
     ))
 
