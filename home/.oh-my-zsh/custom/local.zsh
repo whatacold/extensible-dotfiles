@@ -1,7 +1,7 @@
 # zsh customizations
 
 # colorscheme
-eval `~/dircolors-solarized-light`
+# eval `~/dircolors-solarized-light`
 
 # alias
 alias j='jobs'
