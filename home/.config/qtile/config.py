@@ -146,9 +146,10 @@ for i in groups:
     ])
 
 emacs_purple = '#7359B5'
-border_width = 1
+red = '#ff0000'
+border_width = 2
 border = dict(
-    border_focus=emacs_purple,
+    border_focus=red,
     border_width=border_width
 )
 
