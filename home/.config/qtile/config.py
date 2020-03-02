@@ -5,6 +5,7 @@
 # Copyright (c) 2012 Craig Barnes
 # Copyright (c) 2013 horsik
 # Copyright (c) 2013 Tao Sauvage
+# Copyright (c) 2019-2020 Guangwang Huang
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -250,12 +251,27 @@ def enable_tap_to_click():
     subprocess.run(["xinput", "set-prop", id, "318", "1"])
 
 
+def setup_im():
+    "Set up the input method."
+    try:
+        subprocess.run(["ibus-daemon", "-drx"])
+    except Exception:
+        print('Failed to set ibus-daemon')
+
+
+def set_wallpaper():
+    """Set a wallpaper"""
+    try:
+        subprocess.run(["feh", "--bg-fill",
+                        "/usr/share/backgrounds/f29/default/standard/f29.png"])
+    except Exception:
+        print('Failed to set the wallpaper using feh')
+
+
 # callback entrance, e.g. def main(qtile_instance): pass
 def main(qtile):
-    subprocess.run(["ibus-daemon", "-drx"])
+    setup_im()
 
-    # Set a wallpaper
-    subprocess.run(["feh", "--bg-fill",
-                    "/usr/share/backgrounds/f29/default/standard/f29.png"])
+    set_wallpaper()
 
     enable_tap_to_click()
