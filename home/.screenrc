@@ -1,0 +1,7 @@
+
+# Control-^ (usually Control-Shift-6) is traditional and the only key not used by emacs
+# escape ^^^^ # conflict with urxvt
+# escape <f1>
+
+# Cache 30000 lines for scroll back
+defscrollback 30000

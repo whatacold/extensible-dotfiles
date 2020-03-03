@@ -12,7 +12,7 @@ function apply_config()
         sed -i "/$marker_begin/,/$marker_end/d" $dst
     fi
 
-    if [ "`tail -c 1 $dst`" == "" ]; then
+    if [ "`tail -c 1 $dst` 2>/dev/null" == "" ]; then
         echo "${comment_prefix} $marker_begin" >> $dst
     else # not ended with a blank line
         echo -e "\n${comment_prefix} $marker_begin" >> $dst
@@ -42,4 +42,5 @@ done<<EOF
 # home/.gitconfig
 # home/.oh-my-zsh/custom/local.zsh
 # home/.vagrant.d/Vagrantfile
+# home/.screenrc
 EOF
