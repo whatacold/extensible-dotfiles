@@ -64,7 +64,7 @@ def build_widgets():
         widget.Spacer(width=10),
         widget.GroupBox(disable_drag=True),
         widget.Systray(),
-        widget.Volume(fmt="🔉 {}"),
+        widget.Volume(fmt="🔉 {}", update_interval=1),
         widget.Notify(fmt="💡 {}"),
     ]
 
