@@ -43,4 +43,5 @@ done<<EOF
 # home/.oh-my-zsh/custom/local.zsh
 # home/.vagrant.d/Vagrantfile
 # home/.screenrc
+# home/.ssh/config
 EOF
