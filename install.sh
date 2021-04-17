@@ -44,4 +44,5 @@ done<<EOF
 # home/.vagrant.d/Vagrantfile
 # home/.screenrc
 # home/.ssh/config
+; home/.lein/profiles.clj
 EOF
