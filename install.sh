@@ -45,4 +45,5 @@ done<<EOF
 # home/.screenrc
 # home/.ssh/config
 ; home/.lein/profiles.clj
+# home/.npmrc
 EOF
