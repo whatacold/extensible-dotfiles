@@ -1,7 +1,7 @@
 # THE COMMENT CHAR
-#[user]
-#	name = Guangwang Huang
-#	email = whatacold@gmail.com
+[user]
+	name = Guangwang Huang
+	email = whatacold@gmail.com
 [core]
 	editor = vim
 	autocrlf = false
@@ -22,5 +22,5 @@
 	tool = meld
 [merge]
 	conflictStyle = diff3
-# [credential]
-# 	helper = store
+[credential]
+	helper = store
