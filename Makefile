@@ -1,4 +1,4 @@
 .PHONY: all
 
 all:
-	./install.sh
+	python3 ./install.py
