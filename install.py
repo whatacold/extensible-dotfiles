@@ -14,10 +14,6 @@ def install_file(fn):
         print("Ignore", fn)
         return
 
-    dst_fn = os.path.expanduser(
-        os.path.join('~', os.path.relpath(fn, DIR)))
-
-    # print("filename", fn, dst_fn)
     with open(fn, "rb") as f:
         line = f.readline()
         if not line or line.find(COMMENT_CHAR_MARK) == -1:
@@ -31,15 +27,26 @@ def install_file(fn):
         content = marker_begin + b'\n' + f.read() + b'\n' + marker_end
         # print(comment_char, content)
 
-    with open(dst_fn, "rb") as f:
-        old_content = f.read()
-        begin = old_content.find(marker_begin)
-        if -1 == begin:
-            new_content = old_content + b'\n' + content
-        else:
-            end = old_content.find(marker_end)
-            new_content = old_content[:begin] + content + \
-                old_content[(end+len(marker_end)):]
+    dst_fn = os.path.expanduser(
+        os.path.join('~', os.path.relpath(fn, DIR)))
+    # print("filename", fn, dst_fn)
+    old_content = b''
+    try:
+        os.mkdir(os.path.dirname(dst_fn))
+        with open(dst_fn, "rb") as f:
+            old_content = f.read()
+    except FileNotFoundError:
+        pass
+    except FileExistsError:  # mkdir
+        pass
+
+    begin = old_content.find(marker_begin)
+    if -1 == begin:
+        new_content = old_content + b'\n' + content
+    else:
+        end = old_content.find(marker_end)
+        new_content = old_content[:begin] + content + \
+            old_content[(end+len(marker_end)):]
 
     # print(new_content)
     print("Install {} to {}".format(fn, dst_fn))
