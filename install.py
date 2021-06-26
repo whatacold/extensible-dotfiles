@@ -30,14 +30,16 @@ def install_file(fn):
     dst_fn = os.path.expanduser(
         os.path.join('~', os.path.relpath(fn, DIR)))
     # print("filename", fn, dst_fn)
-    old_content = b''
     try:
         os.mkdir(os.path.dirname(dst_fn))
+    except FileExistsError:
+        pass
+
+    old_content = b''
+    try:
         with open(dst_fn, "rb") as f:
             old_content = f.read()
     except FileNotFoundError:
-        pass
-    except FileExistsError:  # mkdir
         pass
 
     begin = old_content.find(marker_begin)
