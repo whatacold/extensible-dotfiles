@@ -1,3 +1,4 @@
+! THE COMMENT CHAR
 ! Based on https://github.com/ramnes/dotfiles
 URxvt.termName: xterm-256color
 

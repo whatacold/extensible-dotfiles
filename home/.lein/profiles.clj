@@ -1,3 +1,4 @@
+; THE COMMENT CHAR
 {:user
  {:mirrors {
             "central" {:name "aliyun" :url "https://maven.aliyun.com/repository/public/"}

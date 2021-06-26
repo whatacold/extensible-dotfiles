@@ -1,3 +1,4 @@
+# THE COMMENT CHAR
 
 # Control-^ (usually Control-Shift-6) is traditional and the only key not used by emacs
 # escape ^^^^ # conflict with urxvt
