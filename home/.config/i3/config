@@ -187,3 +187,10 @@ bar {
 # exec on startup
 # XXX how to custom PATH?
 exec_always --no-startup-id ~/local/bin/wm-pick-monitor.sh
+
+# Also extend /etc/profile by cat > /etc/profile.d/ibus-chs.sh
+# export QT_IM_MODULE=ibus
+# export XMODIFIERS="@im=ibus"
+# Or ibus doesn't work within terminal and Emacs!
+exec_always --no-startup-id ibus-daemon -drx
+
