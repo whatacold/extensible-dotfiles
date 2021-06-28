@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+from pathlib import Path
 
 DIR = "./home"
 MARKER_BEGIN = b"EXTENSIBLE-DOTFILES BEGINS, DO NOT EDIT DIRECTLY {"
@@ -30,10 +31,7 @@ def install_file(fn):
     dst_fn = os.path.expanduser(
         os.path.join('~', os.path.relpath(fn, DIR)))
     # print("filename", fn, dst_fn)
-    try:
-        os.mkdir(os.path.dirname(dst_fn))
-    except FileExistsError:
-        pass
+    Path(os.path.dirname(dst_fn)).mkdir(parents=True, exist_ok=True)
 
     old_content = b''
     try:
