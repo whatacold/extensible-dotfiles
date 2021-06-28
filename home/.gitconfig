@@ -23,4 +23,5 @@
 [merge]
 	conflictStyle = diff3
 [credential]
+	# How to clear the cache? git config --global --unset user.password
 	helper = store

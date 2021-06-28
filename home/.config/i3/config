@@ -39,7 +39,7 @@ bindsym $mod+c exec google-chrome
 bindsym $mod+z exec zeal
 bindsym $mod+q exec nautilus
 
-bindsym $mod+Control+l exec i3lock
+bindsym $mod+Scroll_Lock exec i3lock
 
 # kill focused window
 bindsym $mod+x kill
