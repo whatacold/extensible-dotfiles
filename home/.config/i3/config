@@ -39,7 +39,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec urxvt256c-ml
-bindsym $mod+e exec emacsclient --eval '(make-frame-command)'
+bindsym $mod+e exec --no-startup-id emacsclient --eval '(make-frame-command)'
 bindsym $mod+Shift+e exec emacs
 bindsym $mod+c exec google-chrome
 bindsym $mod+z exec zeal
