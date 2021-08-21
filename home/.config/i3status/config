@@ -9,7 +9,7 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
+        colors = false
         interval = 5
 }
 
@@ -19,11 +19,11 @@ general {
 # order += "battery all"
 order += "tztime local"
 order += "load"
-order += "memory"
-order += "disk /"
+# order += "memory"
+# order += "disk /"
 
 wireless _first_ {
-        format_up = "WF:%quality %essid"
+        format_up = "WF:%quality"
         format_down = "WF: down"
 }
 
