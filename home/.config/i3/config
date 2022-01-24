@@ -37,6 +37,12 @@ font pango:monospace 12
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+for_window [title="emacs-run-launcher"] floating enable
+
+# emacs as a program launcher, dmenu for falling back
+bindsym $mod+d exec --no-startup-id emacsclient --eval '(emacs-run-launcher)'
+bindsym $mod+Shift+d exec dmenu_run
+
 # start a terminal
 bindsym $mod+Return exec urxvt256c-ml
 bindsym $mod+e exec --no-startup-id emacsclient --eval '(make-frame-command)'
@@ -50,9 +56,6 @@ bindsym $mod+F12 exec i3lock --image $lockscreen_image
 
 # kill focused window
 bindsym $mod+x kill
-
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
