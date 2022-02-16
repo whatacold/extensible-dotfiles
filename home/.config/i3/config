@@ -39,9 +39,8 @@ floating_modifier $mod
 
 for_window [title="emacs-run-launcher"] floating enable
 
-# emacs as a program launcher, dmenu for falling back
-bindsym $mod+d exec --no-startup-id emacsclient --eval '(emacs-run-launcher)'
-bindsym $mod+Shift+d exec dmenu_run
+bindsym $mod+Shift+d exec --no-startup-id emacsclient --eval '(emacs-run-launcher)'
+bindsym $mod+d exec dmenu_run
 
 # start a terminal
 bindsym $mod+Return exec urxvt256c-ml
